@@ -3,3 +3,24 @@ html {
     margin: 0px;
     padding: 0px;
 }
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 230px;
+    background: #c9c9c9;
+}
+
+.sidebar_link-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    width: calc(100vw - 230px);
+    overflow: auto;
+}
