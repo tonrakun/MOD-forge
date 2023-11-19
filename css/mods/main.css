@@ -3,7 +3,7 @@
     display: grid;
     grid-gap: 1rem;
     gap: 0.5rem;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 0fr));
 }
 
 .mods_list_item {
@@ -11,12 +11,23 @@
 }
 
 .mods_list_item_contents {
+    display: flex;
+    flex-direction: column;
     padding: 12px;
+    box-sizing: border-box;
+    height: 100%;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.mods_list_item_contents:hover {
+    background: #00000017;
 }
 
 .mods_list_item_contents>img {
     width: 100%;
     height: auto;
+    margin-bottom: auto;
 }
 
 .mods_list_item_contents>p {
