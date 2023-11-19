@@ -1,8 +1,7 @@
 .mods_list {
     margin: 10px;
     display: grid;
-    grid-gap: 1rem;
-    gap: 0.5rem;
+    grid-gap: 8px;
     grid-template-columns: repeat(auto-fill, minmax(240px, 0fr));
 }
 
