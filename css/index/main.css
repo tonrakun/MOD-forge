@@ -50,3 +50,15 @@ html {
     width: calc(100vw - 230px);
     overflow: auto;
 }
+
+.header {
+    text-align: center;
+}
+
+.header>h1 {
+    color: #002cf0;
+}
+
+.contents {
+    
+}
