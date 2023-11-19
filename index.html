@@ -79,7 +79,7 @@
         $('.wrapper_modal').show();
     });
 
-    $('#modal_ok').on('click', function () {
+    $('#modal_ok').on('click', async function () {
         const url = "https://tonrakunmod-auth.tonrakun.workers.dev";
         const json = {
             "username": $('#modal_input-username').val(),
@@ -91,7 +91,7 @@
             "content-type": "application/json;charset=UTF-8",
             "body": JSON.stringify(json)
         };
-        fetch(url, params).then(res => {
+        await fetch(url, params).then(res => {
             if (res.status === 200) {
                 window.location.href = "./mod_hq/index.html";
             } else if (res.status === 401) {
