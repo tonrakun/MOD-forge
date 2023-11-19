@@ -34,7 +34,6 @@ html {
 
 .sidebar {
     width: 230px;
-    /*background: #a2bbff;*/
     border-right: 1px solid #999999;
 }
 
@@ -152,4 +151,25 @@ html {
 
 .button_3:hover {
     background: #acc2ffaa;
+}
+
+.wrapper_modal {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: #00000060;
+}
+
+.modal {
+    background: #ffffff;
+    border-radius: 4px;
+}
+
+.modal_contents {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
 }

@@ -4,10 +4,29 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/index/main.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <title>とんらーMOD</title>
 </head>
 
 <body>
+    <div class="wrapper_modal">
+        <div class="modal">
+            <div class="modal_contents">
+                <p>このページを見るには認証が必要です。</p>
+                <div style="display: flex; flex-direction: column;">
+                    <a>ユーザー名</a>
+                    <input type="input" id="modal_input-username">
+                </div>
+                <div style="display: flex; flex-direction: column; margin-top: 14px; margin-bottom: 20px;">
+                    <a>パスワード</a>
+                    <input type="password" id="modal_input-password">
+                </div>
+                <div style="display: flex; justify-content: flex-end;">
+                    <button id="modal_ok" style="width: 70px; height: 30px;">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="wrapper">
         <div class="sidebar">
             <div class="sidebar_title">
@@ -25,7 +44,6 @@
                 </a>
                 <a href="">
                     <div class="sidebar_link-item">完全版ダウンロード
-                    
                     </div>
                 </a>
             </div>
@@ -56,7 +74,32 @@
     </div>
 </body>
 <script>
-    $('')
+    $('.wrapper_modal').hide();
+    $('.button_1').on('click', function () {
+        $('.wrapper_modal').show();
+    });
+
+    $('#modal_ok').on('click', function () {
+        const url = "https://tonrakunmod-auth.tonrakun.workers.dev";
+        const json = {
+            "username": $('#modal_input-username').val(),
+            "password": $('#modal_input-password').val(),
+        }
+        const params = {
+            "method": "POST",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "body": JSON.stringify(json)
+        };
+        fetch(url, params).then(res => {
+            if (res.status === 200) {
+                window.location.href = "./mod_hq/index.html";
+            } else if (res.status === 401) {
+                window.alert('認証に失敗しました。')
+            } else {
+                window.alert('エラーが発生しました。')
+            }
+        });
+    });
 </script>
 
 </html>
